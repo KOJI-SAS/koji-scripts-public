@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 PROJECT_NAME=$1
+ORG_NAME=${2:koji-sas}
 
 reset_git() {
   rm -rf .git
@@ -21,9 +22,11 @@ LC_ALL=C find ./ -type f -exec rename ''s/project-name/$PROJECT_NAME/'' {} ";"
 
 echo "Replacing in files files"
 LC_ALL=C find ./ -type f -exec sed -i '' -e ''s/project-name/$PROJECT_NAME/g'' {} \;
+LC_ALL=C find ./ -type f -exec sed -i '' -e ''s/org-name/$ORG_NAME/g'' {} \;
 
 echo "Setting up Git"
 reset_git
 git add -A
 git commit -m "chore: import template and setup monorepo"
 git branch -M trunk
+
