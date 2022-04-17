@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 PROJECT_NAME=$1
-ORG_NAME=${2:koji-sas}
+ORG_NAME=${2:-koji-sas}
 
 reset_git() {
   rm -rf .git
