@@ -9,7 +9,7 @@ reset_git() {
   git init
 }
 
-git clone . $CLIENT_NAME-$PROJECT_NAME
+git clone git@github.com:KOJI-SAS/koji-pnpm-monorepo.git $CLIENT_NAME-$PROJECT_NAME
 cd $_
 
 pnpm install
